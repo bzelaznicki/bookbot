@@ -1,12 +1,17 @@
-def main():
-    book_path = "books/frankenstein.txt"
-    book_text = read_book(book_path)
-    if book_text != None:
-        word_count = count_words(book_text)
-        character_count = count_characters(book_text)
-        converted_character_count = convert_character_count(character_count)
-        generate_book_report(book_path, word_count, converted_character_count)
+import sys
 
+def main():
+    if len(sys.argv) > 1:
+        book_path = sys.argv[1]
+        book_text = read_book(book_path)
+        if book_text != None:
+            word_count = count_words(book_text)
+            character_count = count_characters(book_text)
+            converted_character_count = convert_character_count(character_count)
+            generate_book_report(book_path, word_count, converted_character_count)
+    else:
+        print("No file specified!")
+        return None
 
 def read_book(book_path):
     try:
