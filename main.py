@@ -51,14 +51,16 @@ def convert_character_count(words_dict):
     return characters_list
     
 def prettified_converted_characters(conv_characters):
-    for character in conv_characters:
-        print(f"The '{character['character']}' was found {character['count']} times")
+    if len(conv_characters) > 0:
+        for character in conv_characters:
+            print(f"The '{character['character']}' character was found {character['count']} times")
+    else:
+        print("No characters found!")
 
 def generate_book_report(book_path, word_count, converted_character_count):  
         print(f"--- Begin report of {book_path} ---")
+        print(f"{word_count} words found in the document")
         print("")
-        print(f"{word_count} words found in the book")
         prettified_converted_characters(converted_character_count)
-        print("")
         print(f"--- End report ---")
 main()
